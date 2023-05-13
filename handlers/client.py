@@ -75,7 +75,7 @@ async def countries(message: types.Message):
 
 
 async def drinks(message: types.Message):
-    await bot.send_message(message.from_user.id, "Choose country", reply_markup=kb_client5)
+    await bot.send_message(message.from_user.id, "Choose one of categories", reply_markup=kb_client5)
 
 
 async def elsee(message: types.Message):
