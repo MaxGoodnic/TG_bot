@@ -2,7 +2,7 @@ from aiogram import types, Dispatcher
 
 import web
 from create_bot import bot
-from Keyboards import kb_client1, kb_client2, kb_client3, kb_client4, kb_client5
+from Keyboards import kb_begin, kb_meal_type, kb_add, kb_country_type, kb_coctail_type
 from web import url
 from requests import get
 from apikey import API_TOKEN
@@ -12,7 +12,7 @@ import random
 async def commands_start(message: types.Message):
     await bot.send_message(message.from_user.id,
                            'Choose one of categories. Also you can write the name of dish you want to cook.',
-                           reply_markup=kb_client1)
+                           reply_markup=kb_begin)
 
 
 async def find_recipe(message: types.Message):
@@ -25,12 +25,12 @@ async def find_recipe(message: types.Message):
         # обработка ошибок с сайтов
     else:
         i = random.randrange(len(web.all_links))
-        await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_client3)
+        await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_add)
         web.all_links.pop(i)
 
 
 async def meal_types(message: types.Message):
-    await bot.send_message(message.from_user.id, 'Choose one of categories', reply_markup=kb_client2)
+    await bot.send_message(message.from_user.id, 'Choose one of categories', reply_markup=kb_meal_type)
 
 
 async def meal_type(message: types.Message):
@@ -44,7 +44,7 @@ async def meal_type(message: types.Message):
     else:
         i = random.randrange(len(web.all_links))
         await bot.send_message(message.from_user.id, web.all_links[i] + '\nIs it good enough?',
-                               reply_markup=kb_client3)
+                               reply_markup=kb_add)
         web.all_links.pop(i)
 
 
@@ -52,12 +52,12 @@ async def anything_else(message: types.Message):
     if len(web.all_links) == 0:
         await bot.send_message(message.from_user.id, "That's all I can to offer to you")
     i = int(random.randrange(len(web.all_links)))
-    await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_client3)
+    await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_add)
     web.all_links.pop(i)
 
 
 async def cuisine_type(message: types.Message):
-    await bot.send_message(message.from_user.id, "Choose country", reply_markup=kb_client4)
+    await bot.send_message(message.from_user.id, "Choose country", reply_markup=kb_country_type)
 
 
 async def countries(message: types.Message):
@@ -70,19 +70,19 @@ async def countries(message: types.Message):
         # обработка ошибок с сайтов
     else:
         i = random.randrange(len(web.all_links))
-        await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_client3)
+        await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_add)
         web.all_links.pop(i)
 
 
 async def drinks(message: types.Message):
-    await bot.send_message(message.from_user.id, "Choose one of categories", reply_markup=kb_client5)
+    await bot.send_message(message.from_user.id, "Choose one of categories", reply_markup=kb_coctail_type)
 
 
 async def elsee(message: types.Message):
     if len(web.all_links) == 0:
         await bot.send_message(message.from_user.id, "That's all I can to offer to you")
     i = int(random.randrange(len(web.all_links)))
-    await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_client3)
+    await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_add)
     web.all_links.pop(i)
 
 
@@ -102,7 +102,7 @@ async def drink_type(message: types.Message):
         # обработка ошибок с сайтов
     else:
         i = random.randrange(len(web.all_links))
-        await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_client3)
+        await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_add)
         web.all_links.pop(i)
 
 
@@ -116,7 +116,7 @@ async def desserts(message: types.Message):
         # обработка ошибок с сайтов
     else:
         i = random.randrange(len(web.all_links))
-        await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_client3)
+        await bot.send_message(message.from_user.id, web.all_links[i], reply_markup=kb_add)
         web.all_links.pop(i)
 
 
