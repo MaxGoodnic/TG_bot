@@ -1,1 +1,1 @@
-from config.py import API_TOKEN
+from config.config import API_TOKEN
