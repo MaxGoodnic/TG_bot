@@ -1,1 +1,8 @@
-TOKEN = '6259052572:AAH4Cs1Vi01HCjGYuMcfe1Hp_M6ocovaqk8'
+import os
+import dotenv
+
+dotenv.load_dotenv('.env')
+
+TOKEN = os.environ['TOKEN']
+API_TOKEN = os.environ['API_TOKEN']
+API_ID = os.environ['API_ID']
