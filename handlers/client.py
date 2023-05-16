@@ -6,7 +6,7 @@ from Keyboards import kb_begin, kb_meal_type, kb_add, kb_country_type, kb_coctai
 from web import url
 from requests import get
 from apikey import API_TOKEN
-from config.config import API_ID
+from config.config import APP_ID
 import random
 
 
@@ -17,7 +17,7 @@ async def commands_start(message: types.Message):
 
 
 async def find_recipe(message: types.Message):
-    params = {'type': 'public', 'app_id': API_ID, 'app_key': API_TOKEN}
+    params = {'type': 'public', 'app_id': APP_ID, 'app_key': API_TOKEN}
     params['q'] = message.text
     response = get(url, params=params).json()
     web.all_links = [response["hits"][i]["recipe"]["url"] for i in range(response["to"])]
@@ -35,7 +35,7 @@ async def meal_types(message: types.Message):
 
 
 async def meal_type(message: types.Message):
-    params = {'type': 'public', 'app_id': API_ID, 'app_key': API_TOKEN}
+    params = {'type': 'public', 'app_id': APP_ID, 'app_key': API_TOKEN}
     params['meal_type'] = message.text.lower().capitalize()
     response = get(url, params=params).json()
     web.all_links = [response["hits"][i]["recipe"]["url"] for i in range(response["to"])]
@@ -62,7 +62,7 @@ async def cuisine_type(message: types.Message):
 
 
 async def countries(message: types.Message):
-    params = {'type': 'public', 'app_id': API_ID, 'app_key': API_TOKEN}
+    params = {'type': 'public', 'app_id': APP_ID, 'app_key': API_TOKEN}
     params['cuisine_type'] = message.text.lower().capitalize()
     response = get(url, params=params).json()
     web.all_links = [response["hits"][i]["recipe"]["url"] for i in range(response["to"])]
@@ -88,7 +88,7 @@ async def elsee(message: types.Message):
 
 
 async def drink_type(message: types.Message):
-    params = {'type': 'public', 'app_id': API_ID, 'app_key': API_TOKEN}
+    params = {'type': 'public', 'app_id': APP_ID, 'app_key': API_TOKEN}
     params['dish_type'] = 'Drinks'
     params['health'] = message.text.lower()
     response = get(url, params=params).json()
@@ -108,7 +108,7 @@ async def drink_type(message: types.Message):
 
 
 async def desserts(message: types.Message):
-    params = {'type': 'public', 'app_id': API_ID, 'app_key': API_TOKEN}
+    params = {'type': 'public', 'app_id': APP_ID, 'app_key': API_TOKEN}
     params['dish_type'] = 'Desserts'
     response = get(url, params=params).json()
     web.all_links = [response["hits"][i]["recipe"]["url"] for i in range(response["to"])]
