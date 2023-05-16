@@ -1,1 +1,1 @@
-from Keyboards.client_kb import kb_client1, kb_client2, kb_client3, kb_client4, kb_client5
+from Keyboards.client_kb import kb_begin,kb_meal_type, kb_add, kb_country_type, kb_coctail_type
