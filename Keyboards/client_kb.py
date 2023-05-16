@@ -1,19 +1,17 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+kb_begin = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+kb_meal_type = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+kb_add = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+kb_country_type = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+kb_coctail_type = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 
-ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(KeyboardButton('MealType'), 
-                                                                      KeyboardButton('CuisineType')).row(KeyboardButton('Drinks'), 
-                                                                                                         KeyboardButton('Desserts'))
+kb_begin.add(KeyboardButton('MealType'), KeyboardButton('CuisineType')).row(KeyboardButton('Drinks'), KeyboardButton('Desserts'))
 
-ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(KeyboardButton('Breakfast')).add(
-  KeyboardButton('Lunch')).add(KeyboardButton('Dinner'))
+kb_meal_type.add(KeyboardButton('Breakfast')).add(KeyboardButton('Lunch')).add(KeyboardButton('Dinner'))
 
-ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(KeyboardButton('anything else'))
+kb_add.add(KeyboardButton('anything else'))
 
-ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(KeyboardButton('American'), 
-                                                                      KeyboardButton('Asian'), 
-                                                                      KeyboardButton('British')).row(KeyboardButton('Chinese'), 
-                                                                                                     KeyboardButton('Japanese'), 
-                                                                                                     KeyboardButton('Indian'))
+kb_country_type.add(KeyboardButton('American'), KeyboardButton('Asian'), 
+               KeyboardButton('British')).row(KeyboardButton('Chinese'), KeyboardButton('Japanese'), KeyboardButton('Indian'))
 
-ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(KeyboardButton('Alcohol-Cocktail'), 
-                                                                      KeyboardButton('Alcohol-Free'))
+kb_coctail_type.add(KeyboardButton('Alcohol-Cocktail'), KeyboardButton('Alcohol-Free'))
