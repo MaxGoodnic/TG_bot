@@ -9,7 +9,7 @@ from apikey import API_TOKEN
 import random
 
 
-async def commandsstart(message: types.Message):
+async def commands_start(message: types.Message):
     await bot.send_message(message.from_user.id,
                            'Choose one of categories. Also you can write the name of dish you want to cook.',
                            reply_markup=kb_client1)
@@ -121,7 +121,7 @@ async def desserts(message: types.Message):
 
 
 def register_handlers_client(dp: Dispatcher):
-    dp.register_message_handler(commandsstart, commands=['Start', 'Help'])
+    dp.register_message_handler(commands_start, commands=['Start', 'Help'])
     dp.register_message_handler(cuisinetype, lambda message: message.text.lower() in ['cuisinetype'])
     dp.register_message_handler(mealtypes, lambda message: message.text.lower() in ['mealtype'])
     dp.register_message_handler(drinks, lambda message: message.text.lower() in ['drinks'])
