@@ -122,8 +122,8 @@ async def desserts(message: types.Message):
 
 def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(commands_start, commands=['Start', 'Help'])
-    dp.register_message_handler(cuisine_type, lambda message: message.text.lower() in ['cuisine_type'])
-    dp.register_message_handler(meal_types, lambda message: message.text.lower() in ['meal_type'])
+    dp.register_message_handler(cuisine_type, lambda message: message.text.lower() in ['cuisine type'])
+    dp.register_message_handler(meal_types, lambda message: message.text.lower() in ['meal type'])
     dp.register_message_handler(drinks, lambda message: message.text.lower() in ['drinks'])
     dp.register_message_handler(desserts, lambda message: message.text.lower() in ['dessert'])
     dp.register_message_handler(countries,
@@ -131,5 +131,5 @@ def register_handlers_client(dp: Dispatcher):
                                                                          'japanese', 'indian'])
     dp.register_message_handler(drink_type, lambda message: message.text.lower() in ['alcohol-cocktail', 'alcohol-free'])
     dp.register_message_handler(meal_type, lambda message: message.text.lower() in ['breakfast', 'lunch', 'dinner'])
-    dp.register_message_handler(elsee, lambda message: message.text.lower() in ['anything_else'])
+    dp.register_message_handler(elsee, lambda message: message.text.lower() in ['anything else'])
     dp.register_message_handler(find_recipe)
